@@ -30,8 +30,10 @@ class AlphaAgent:
         self.alpha = alpha
         
     def update(self, action, reward):
-        self.Qs[action] += (reward - self.Qs[action]) * self.alpha
+        self.Qs[action] += self.alpha * (reward - self.Qs[action])
     
+    # epsilonの割合でランダムな行動を取る
+    # それ以外は常に最適な行動を取る
     def get_action(self):
         if np.random.rand() < self.epsilon:
             return np.random.randint(0, len(self.Qs))
@@ -49,6 +51,7 @@ if __name__ == '__main__':
     for agent_type in agent_types:
         
         # (200, 1000)の配列
+        # Agentごとに作成
         all_rates = np.zeros((runs, steps))
 
         for run in range(runs):
@@ -73,13 +76,14 @@ if __name__ == '__main__':
         avg_rates = np.average(all_rates, axis=0)
         results[agent_type] = avg_rates
     
-# plot
-plt.figure()
-plt.ylabel('Average Rates')
-plt.xlabel('Steps')
-for key, avg_rates in results.items():
-    plt.plot(avg_rates, label=key)
-plt.legend()
-plt.savefig('NonStatBandit.png')
-plt.clf()
-plt.close()
+    # plot
+    plt.figure()
+    plt.ylabel('Average Rates')
+    plt.xlabel('Steps')
+    for key, avg_rates in results.items():
+        plt.plot(avg_rates, label=key)
+    plt.legend()
+    plt.savefig('NonStatBandit.png')
+
+    plt.clf()
+    plt.close()
