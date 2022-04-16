@@ -80,8 +80,9 @@ class GridWorld:
         renderer.render_q(q, print_value)
 
 
-env = GridWorld()
-V = {}
-for state in env.states():
-    V[state] = np.random.randn()
-env.render_v(V)
+if __name__ == '__main__':
+    env = GridWorld()
+    V = {}
+    for state in env.states():
+        V[state] = np.random.randn()
+    env.render_v(V)
