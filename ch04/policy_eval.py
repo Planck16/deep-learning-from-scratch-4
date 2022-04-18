@@ -1,3 +1,8 @@
+"""
+4.2.3 反復方策評価 p104
+"""
+
+
 if '__file__' in globals():
     import os, sys
     sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
