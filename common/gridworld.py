@@ -55,7 +55,7 @@ class GridWorld:
         
         return next_state
     
-    def reward(self, stete, action, next_state):
+    def reward(self, state, action, next_state):
         return self.reward_map[next_state]
     
     def reset(self):

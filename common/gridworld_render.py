@@ -3,6 +3,10 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 
+# グラフの名前を設定
+fig_name = 'policy_iter' + '.png'
+
+
 class Renderer:
     def __init__(self, reward_map, goal_state, wall_state):
         self.reward_map = reward_map
@@ -86,7 +90,7 @@ class Renderer:
                 if state == self.wall_state:
                     ax.add_patch(plt.Rectangle((x,ys-y-1), 1, 1, fc=(0.4, 0.4, 0.4, 1.)))
         plt.show()
-        plt.savefig('rendered.png')
+        plt.savefig(fig_name)
 
     def render_q(self, q, show_greedy_policy=True):
         self.set_figure()
@@ -149,7 +153,7 @@ class Renderer:
                         offset= offset_map[action]
                         ax.text(tx+offset[0], ty+offset[1], "{:12.2f}".format(tq))
         plt.show()
-        plt.savefig('rendered.png')
+        plt.savefig(fig_name)
 
         if show_greedy_policy:
             policy = {}
