@@ -29,6 +29,7 @@ def value_iter_onestep(V, env, gamma):
     return V
 
 
+# 最適価値関数を求める
 def value_iter(V, env, gamma, threshold=0.001, is_render=True):
     while True:
         if is_render:
@@ -40,9 +41,12 @@ def value_iter(V, env, gamma, threshold=0.001, is_render=True):
         delta = 0
         for state in V.keys():
             t = abs(V[state] - old_V[state])
+            
+            # 全ての価値関数の値の変化量のうち、最大のものをdeltaとする
             if delta < t:
                 delta = t
         
+        # 変化量が微小になったら更新をやめる
         if delta < threshold:
             break
     
@@ -54,7 +58,10 @@ if __name__ == '__main__':
     env = GridWorld()
     gamma = 0.9
 
+    # 最適価値関数を求める
     V = value_iter(V, env, gamma)
 
+    # 最適価値関数から最適方策を求める
     pi = greedy_policy(V, env, gamma)
+
     env.render_v(V, pi)
