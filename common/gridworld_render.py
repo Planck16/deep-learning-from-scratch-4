@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 # グラフの名前を設定
-fig_name = 'value_iter' + '.png'
+fig_name = 'mc_eval' + '.png'
 
 
 class Renderer:
