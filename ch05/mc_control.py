@@ -1,3 +1,8 @@
+"""
+モンテカルロ法による方策制御　p149
+"""
+
+
 import os, sys; sys.path.append(os.path.join(os.path.dirname(__file__), '..')) # for importing the parent dirs
 import numpy as np
 from collections import defaultdict
