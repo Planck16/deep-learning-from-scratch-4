@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 # グラフの名前を設定
-fig_name = 'mc_control' + '.png'
+fig_name = 'mc_control_offpolicy' + '.png'
 
 
 class Renderer:
