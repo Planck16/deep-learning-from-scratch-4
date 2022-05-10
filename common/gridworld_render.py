@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 # グラフの名前を設定
-fig_name = 'sarsa' + '.png'
+fig_name = 'sarsa_off_policy' + '.png'
 
 
 class Renderer:
