@@ -30,6 +30,9 @@
 		"peacock.color": "#1857a4",
 		"cSpell.ignoreWords": [
 			"probs"
+		],
+		"cSpell.words": [
+			"Sarsa"
 		]
 	}
 }
